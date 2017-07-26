@@ -14,7 +14,7 @@ The goals / steps of this project are the following:
 
 #### 1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-I extracted HOG features in `image_pipeline.py` in lines #22 & #25. I used function extract_features() from Udacity lessons that under the hood uses hog function from skimage.feature.
+I extracted HOG features in `image_pipeline.py` in lines #14 & #17. I used function extract_features() from Udacity lessons that under the hood uses hog function from skimage.feature.
 
 #### 2. Explain how you settled on your final choice of HOG parameters.
 
@@ -22,7 +22,7 @@ I extracted HOG features in `image_pipeline.py` in lines #22 & #25. I used funct
 
 #### 3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using my extracted features. After I got over 98% accuracy I saved it in a pickle. These are lines from #13 to #50 in file `image_pipeline.py`
+I trained a linear SVM using my extracted features. After I got over 98% accuracy I saved it in a pickle. These are lines from #27 to #37 in file `image_pipeline.py`
 
 ### Sliding Window Search
 
