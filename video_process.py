@@ -5,22 +5,22 @@ from lessons_functions import *
 
 
 def process_image(image):
-    boxes = find_cars(image, 400, 464, 1.0, color_space, hog_channel, svc, None,
-                      orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 416, 480, 1.0, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 400, 496, 1.5, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 432, 528, 1.5, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 400, 528, 2.0, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 432, 560, 2.0, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 400, 596, 3.5, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
-    boxes += find_cars(image, 464, 660, 3.5, color_space, hog_channel, svc, None,
-                       orient, pix_per_cell, cell_per_block, None, None)
+    boxes = find_cars(image, 400, 464, 1.0, color_space, hog_channel, svc,
+                      orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 416, 480, 1.0, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 400, 496, 1.5, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 432, 528, 1.5, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 400, 528, 2.0, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 432, 560, 2.0, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 400, 596, 3.2, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
+    boxes += find_cars(image, 464, 680, 3.2, color_space, hog_channel, svc,
+                       orient, pix_per_cell, cell_per_block)
 
     vehicles.add(boxes)
 
@@ -31,7 +31,7 @@ def process_image(image):
 
     heatmap_img = apply_threshold(heatmap_img, 1 + len(vehicles.prev_boxes) // 2)
     labels = label(heatmap_img)
-    draw_img, rects = draw_labeled_bboxes(np.copy(image), labels)
+    draw_img, rects = draw_labeled_boxes(np.copy(image), labels)
 
     return draw_img
 
