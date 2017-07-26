@@ -9,15 +9,6 @@ The goals / steps of this project are the following:
 * Run your pipeline on a video stream (start with the test_video.mp4 and later implement on full project_video.mp4) and create a heat map of recurring detections frame by frame to reject outliers and follow detected vehicles.
 * Estimate a bounding box for vehicles detected.
 
-[//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
-[video1]: ./project_video.mp4
 
 ### Histogram of Oriented Gradients (HOG)
 
@@ -39,19 +30,30 @@ I trained a linear SVM using my extracted features. After I got over 98% accurac
 
 I looked at some testing images and measured what size can a car appear to be in which parts of the frame and got a few scales and areas out of it. Here's how it looks like:
 
-![alt text][image3]
+<src href="output_images/boxes_range.jpg" width="500"/>
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on three scales using YUV 3-channel HOG features. I tried to bring color histogram but had too many troubles and too little time to work this out.  Here are some example images:
+Ultimately I searched on three scales using YUV 3-channel HOG features. I tried to bring color histogram but had too many troubles and too little time to work this out. Here are some example images:
 
-![alt text][image4]
+
+<src href="output_images/test1.jpg" width="500"/>
+<src href="output_images/test2.jpg" width="500"/>
+<src href="output_images/test3.jpg" width="500"/>
+<src href="output_images/test4.jpg" width="500"/>
+<src href="output_images/test5.jpg" width="500"/>
+<src href="output_images/test6.jpg" width="500"/>
+
+
 ---
 
 ### Video Implementation
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./output_video.mp4)
+
+
+<src href="output_images/boxes_range.jpg" width="500"/>
 
 
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
