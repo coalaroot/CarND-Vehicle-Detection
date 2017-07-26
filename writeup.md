@@ -34,7 +34,12 @@ I looked at some testing images and measured what size can a car appear to be in
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on three scales using YUV 3-channel HOG features. I tried to bring color histogram but had too many troubles and too little time to work this out. Here are some example images:
+Ultimately I searched on three scales using YUV 3-channel HOG features. I tried to bring color histogram but had too many troubles and too little time to work this out. I used heatmap to eliminate overlapping boxes and false positives. Example of a heatmap:
+
+<img src="output_images/hitmap1.png" width="500"/>
+<img src="output_images/hitmap2.png" width="500"/>
+
+Here are some example images after applying label():
 
 
 <img src="output_images/test1.jpg" width="500"/>
