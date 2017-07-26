@@ -30,19 +30,19 @@ I trained a linear SVM using my extracted features. After I got over 98% accurac
 
 I looked at some testing images and measured what size can a car appear to be in which parts of the frame and got a few scales and areas out of it. Here's how it looks like:
 
-<src href="output_images/boxes_range.jpg" width="500"/>
+<img src="output_images/boxes_range.jpg" width="500"/>
 
 #### 2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on three scales using YUV 3-channel HOG features. I tried to bring color histogram but had too many troubles and too little time to work this out. Here are some example images:
 
 
-<src href="output_images/test1.jpg" width="500"/>
-<src href="output_images/test2.jpg" width="500"/>
-<src href="output_images/test3.jpg" width="500"/>
-<src href="output_images/test4.jpg" width="500"/>
-<src href="output_images/test5.jpg" width="500"/>
-<src href="output_images/test6.jpg" width="500"/>
+<img src="output_images/test1.jpg" width="500"/>
+<img src="output_images/test2.jpg" width="500"/>
+<img src="output_images/test3.jpg" width="500"/>
+<img src="output_images/test4.jpg" width="500"/>
+<img src="output_images/test5.jpg" width="500"/>
+<img src="output_images/test6.jpg" width="500"/>
 
 
 ---
@@ -53,23 +53,9 @@ Ultimately I searched on three scales using YUV 3-channel HOG features. I tried 
 Here's a [link to my video result](./output_video.mp4)
 
 
-<src href="output_images/boxes_range.jpg" width="500"/>
-
-
 #### 2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
-I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded (with threshold of 1) that map to identify vehicle positions. I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected.
-
-
-### Here are six frames and their corresponding heatmaps:
-
-![alt text][image5]
-
-### Here is the output of `scipy.ndimage.measurements.label()` on the integrated heatmap from all six frames:
-![alt text][image6]
-
-### Here the resulting bounding boxes are drawn onto the last frame in the series:
-![alt text][image7]
+I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded (with threshold of 1) that map to identify vehicle positions. I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap. I then assumed each blob corresponded to a vehicle. I constructed bounding boxes to cover the area of each blob detected. In addition to that I created a class `Vehicles` that remembers just last 20 boxes (where all cars are) and just deletes the oldest if necessary
 
 ---
 
